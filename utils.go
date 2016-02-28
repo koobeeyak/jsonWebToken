@@ -1,4 +1,4 @@
-package tokenGen
+package jsonWebToken
 
 import (
 	"crypto/rsa"
@@ -12,7 +12,7 @@ import (
 // openssl genrsa -out app.rsa keysize
 // openssl rsa -in app.rsa -pubout > app.rsa.pub
 
-func getPrivateKeyFromPath(path string) *rsa.PrivateKey {
+func GetPrivateKeyFromPath(path string) *rsa.PrivateKey {
 	bytes, err := ioutil.ReadFile(path)
 	if err != nil {
 		log.Fatal(err)
@@ -24,7 +24,7 @@ func getPrivateKeyFromPath(path string) *rsa.PrivateKey {
 	return key
 }
 
-func getPublicKeyFromPath(path string) *rsa.PublicKey {
+func GetPublicKeyFromPath(path string) *rsa.PublicKey {
 	bytes, err := ioutil.ReadFile(path)
 	if err != nil {
 		log.Fatal(err)

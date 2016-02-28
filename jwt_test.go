@@ -1,4 +1,4 @@
-package tokenGen
+package jsonWebToken
 
 import (
 	"crypto/rand"
@@ -29,7 +29,7 @@ func TestSignAndReadWithPath(test *testing.T) {
 		test.Log("Generated this tokenString:")
 		test.Log(tokenString)
 	}
-	myPublicKey := getPublicKeyFromPath(myPublicKeyPath)
+	myPublicKey := GetPublicKeyFromPath(myPublicKeyPath)
 	if _, ok := AuthorizeToken(tokenString, myPublicKey); !ok {
 		test.Log("Can't authorize token: ", err)
 		test.FailNow()

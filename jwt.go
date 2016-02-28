@@ -1,4 +1,4 @@
-package tokenGen
+package jsonWebToken
 
 import (
 	"crypto/rsa"
@@ -29,7 +29,7 @@ func (t *tokenData) AddData(key string, value interface{}) {
 }
 
 func (t *tokenData) SetPrivateKeyFromPath(path string) {
-	key := getPrivateKeyFromPath(path)
+	key := GetPrivateKeyFromPath(path)
 	t.privateKey = key
 }
 
